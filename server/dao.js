@@ -19,7 +19,7 @@ con.connect(function(err) {
 });
 
 function resultRowToHtml(id, url, categoryId, spanId){
-  return "<span id=\"span-" + spanId + "\">id: " + id + "<br>Url: " + url + "<br>categoryid: " + categoryid + "</span>";
+  return "<span id=\"span-" + spanId + "\">id: " + id + "<br>Url: " + url + "<br>categoryid: " + categoryId + "</span>";
 }
 
 async function getRatingsAsHtml(){
@@ -40,7 +40,18 @@ async function getRatingsAsHtml(){
   });
 };
 
+//async function getTopMeme(){
+ // return new Promise( resolve => {
+  //  con.query("SELECT url FROM memes;",
+  //  function (err, result, fields) {
+  //    if (err) throw err;
 
+   //   var i = getRandomIndex(result.length);
+
+ //     resolve(result[i].url);
+//    })
+//  });
+//};
 
 
 module.exports = {
@@ -66,17 +77,17 @@ module.exports = {
     //}//);
   //},
   
-  getAllRatings: function() {
-    return new Promise( resolve => {
-    con.query("SELECT ratee, stars, comment FROM rating;",
-    function (err, result, fields) {
-    if (err) throw err;
+  //getAllRatings: function() {
+   // return new Promise( resolve => {
+    //con.query("SELECT ratee, stars, comment FROM memes;",
+    //function (err, result, fields) {
+    //if (err) throw err;
      
     //return the star value:
-    resolve(result[0].stars)
-    })
-    });
-    },
+    //resolve(result[0].stars)
+    //})
+    ///}/);
+    //},
 
   insertRating: function (id, url, categoryId) {
     return new Promise( resolve => {

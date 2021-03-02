@@ -70,8 +70,8 @@ app.get('/insertMeme', async (request, response)  => {
     response.status(200).send(imgTag);
 
 
-    var id = 1 //request.query.id;
-    var url = 1 //request.query.url;
+    var id = request.query.id;
+    var url = request.query.url;
     var categoryId = 1;
    // var categoryId = request.query.categoryId;
     
@@ -93,6 +93,16 @@ app.get('/insertMeme', async (request, response)  => {
 
 app.get('/getRatings', async (request, response)  => {
     var ratingsHtml = await dao.getRatingsAsHtml();
+    console.log('grabbig it now, cheif')
+    //TODO: connect to the database, select all ratings, and return them in an HTML table or similar
+   // dao.getAllRatings();
+  //  console.log("HTML Response: " + ratingsHtml);
+
+    response.status(200).send( ratingsHtml );
+})
+
+app.get('/getTopMeme', async (request, response)  => {
+    var ratingsHtml = await dao.getTopMeme();
     console.log('grabbig it now, cheif')
     //TODO: connect to the database, select all ratings, and return them in an HTML table or similar
    // dao.getAllRatings();

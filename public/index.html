@@ -34,10 +34,10 @@
    			}
 
 			function insertMeme(){
-				//var filepath = document.getElementById("insertMeme").value;
+				var filepath = document.getElementById("insertMeme").value;
 
 				var xhr = new XMLHttpRequest();
-			//	xhr.open("GET","http://localhost:3000/insertMeme?filepath=" + filepath, true);
+				xhr.open("GET","http://localhost:3000/insertMeme?filepath=" + filepath, true);
 			xhr.open("GET","http://localhost:3000/insertMeme", true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -49,11 +49,20 @@
 				xhr.send();
 			}
 
-			//function getMeme(){
-			//	/getRatings()
-			
-			//	};
-			//	xhr.send();
+			function getAllRatings(){
+				var xhr = new XMLHttpRequest();			
+				
+				xhr.open("GET","http://localhost:3000/getRatings", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+				xhr.onreadystatechange = function() {
+        			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            			document.getElementById("ratings-div").innerHTML = this.responseText;
+       				}
+				};
+				
+				xhr.send();
+   			}
 			
 		</script>
 
@@ -68,7 +77,9 @@
 		<br />
 		<button type= "button" onclick="insertMeme()">Send it!</button>
 
-		<button type = "button" onclick="getRatings()">Get back</button>
+		<button type = "button" onclick="getAllRatings()">Get back</button>
+
+		<div id="ratings-div"></div>
 
 
 
