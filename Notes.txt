@@ -1,0 +1,8 @@
+CREATE TABLE TheUser(
+ Username varchar(255),
+ Email varchar(255),
+ Rating smallint,
+ UserId int
+);
+
+INSERT INTO TheUser VALUES('aray03', 'aAnde6943@westada.org', 3, 430);
