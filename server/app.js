@@ -71,7 +71,7 @@ app.get('/insertMeme', async (request, response)  => {
 
 
     var id = request.query.id;
-    var url = request.query.url;
+    var url = request.query.filepath;
     var categoryId = 1;
    // var categoryId = request.query.categoryId;
     
@@ -93,7 +93,7 @@ app.get('/insertMeme', async (request, response)  => {
 
 app.get('/getRatings', async (request, response)  => {
     var ratingsHtml = await dao.getRatingsAsHtml();
-    console.log('grabbig it now, cheif')
+    console.log('grabbing it now buddy')
     //TODO: connect to the database, select all ratings, and return them in an HTML table or similar
    // dao.getAllRatings();
   //  console.log("HTML Response: " + ratingsHtml);
